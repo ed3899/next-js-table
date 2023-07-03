@@ -1,6 +1,6 @@
 import { Table as NextTable } from "@nextui-org/react";
 
-interface User {
+export interface User {
   id: number;
   name: string;
   email: string;
