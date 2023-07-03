@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
-import { AgGridReact } from 'ag-grid-react';
+import 'handsontable/dist/handsontable.full.min.css';
+import { HotTable } from '@handsontable/react';
+import { registerAllModules } from 'handsontable/registry';
+import 'handsontable/dist/handsontable.full.min.css';
 
-const InterativeTable = () => {
-  const [rowData] = useState([
-      {make: "Toyota", model: "Celica", price: 35000},
-      {make: "Ford", model: "Mondeo", price: 32000},
-      {make: "Porsche", model: "Boxster", price: 72000}
-  ]);
+registerAllModules();
 
-  const [columnDefs] = useState([
-      { field: 'make' },
-      { field: 'model' },
-      { field: 'price' }
-  ]);
+const InteractiveTable = () => {
 
   return (
-      <div className="ag-theme-alpine" style={{height: 400, width: 600}}>
-          <AgGridReact
-              rowData={rowData}
-              columnDefs={columnDefs as any}>
-          </AgGridReact>
-      </div>
+      <HotTable
+        // set `HotTable`'s props here
+        data={[
+          ['', 'Tesla', 'Volvo', 'Toyota', 'Ford'],
+          ['2019', 10, 11, 12, 13],
+          ['2020', 20, 11, 14, 13],
+          ['2021', 30, 15, 12, 13]
+        ]}
+        rowHeaders={true}
+        colHeaders={true}
+        height="auto"
+        licenseKey="non-commercial-and-evaluation" // for non-commercial use only
+      />
   );
 };
 
-export default InterativeTable
+export default InteractiveTable
+
+
+
+

@@ -49,10 +49,10 @@ const Table: React.FC<TableProps> = ({ users, error }) => {
   }
 
   return (
-    <div className="ag-theme-alpine" style={{height: 400, width: 600}}>
-      Hello
+    <div>
+      <InteractiveTable />
     </div>
-);
+  )
 };
 
 export default Table;
