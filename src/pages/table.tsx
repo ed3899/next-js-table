@@ -1,4 +1,4 @@
-import InteractiveTable from "../components/interactiveTable"
+import { Table } from '@nextui-org/react';
 
 interface User {
   id: number;
@@ -42,17 +42,49 @@ interface TableProps {
   error?: boolean;
 }
 
-const Table: React.FC<TableProps> = ({ users, error }) => {
+const TablePage: React.FC<TableProps> = ({ users, error }) => {
 
   if (error) {
     return <div>Error fetching data</div>;
   }
 
   return (
-    <div>
-      <InteractiveTable />
-    </div>
+    <Table
+      aria-label="Example table with static content"
+      css={{
+        height: "auto",
+        minWidth: "100%",
+      }}
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>EMAIL</Table.Column>
+        <Table.Column>Gender</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
   )
 };
 
-export default Table;
+export default TablePage;
