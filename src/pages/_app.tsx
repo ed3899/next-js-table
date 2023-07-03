@@ -1,5 +1,5 @@
-import { AppProps } from 'next/app';
-import { NextUIProvider } from '@nextui-org/react';
+import { AppProps } from "next/app";
+import { NextUIProvider } from "@nextui-org/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
